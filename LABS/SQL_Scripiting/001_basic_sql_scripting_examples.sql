@@ -4,6 +4,10 @@
 -- MAGIC
 -- MAGIC Este notebook demonstra os conceitos básicos de SQL Scripting no Databricks, incluindo estruturas de controle de fluxo, manipulação de variáveis e operações com tabelas.
 -- MAGIC
+-- MAGIC ## Requisitos
+-- MAGIC - Databricks Runtime (DBR) 16.3 ou superior
+-- MAGIC - Unity Catalog configurado
+-- MAGIC
 -- MAGIC ## Documentação Oficial
 -- MAGIC - [SQL Scripting](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-scripting)
 -- MAGIC - [LOOP Statement](https://docs.databricks.com/aws/en/sql/language-manual/control-flow/loop-stmt)
