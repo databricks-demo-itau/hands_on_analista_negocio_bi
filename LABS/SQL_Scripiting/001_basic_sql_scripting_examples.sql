@@ -2,7 +2,7 @@
 -- MAGIC %md
 -- MAGIC # Exemplos Básicos de SQL Scripting
 -- MAGIC
--- MAGIC Este notebook demonstra os conceitos básicos de SQL Scripting no Databricks, incluindo estruturas de controle de fluxo e manipulação de variáveis.
+-- MAGIC Este notebook demonstra os conceitos básicos de SQL Scripting no Databricks, incluindo estruturas de controle de fluxo, manipulação de variáveis e operações com tabelas.
 -- MAGIC
 -- MAGIC ## Documentação Oficial
 -- MAGIC - [SQL Scripting](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-scripting)
@@ -12,9 +12,10 @@
 -- MAGIC ## Cenário de Demonstração
 -- MAGIC Vamos explorar:
 -- MAGIC 1. Declaração e uso de variáveis
--- MAGIC 2. Estruturas de controle IF/THEN/ELSE
--- MAGIC 3. Loops e iterações
+-- MAGIC 2. Estruturas de controle IF/THEN/ELSE com tabelas
+-- MAGIC 3. Loops e iterações para inserção de dados
 -- MAGIC 4. Tratamento de erros básico
+-- MAGIC 5. Manipulação de dados em tabelas
 
 -- COMMAND ----------
 
@@ -43,110 +44,183 @@ use schema identifier(user_name);
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ## 2. Exemplo de IF/THEN/ELSE
+-- MAGIC ## 2. Exemplo com Tabela de Produtos
 -- MAGIC
--- MAGIC Demonstração de como usar estruturas condicionais em SQL Scripting.
+-- MAGIC Vamos criar uma tabela de produtos e manipular seus dados usando SQL Scripting.
 
 -- COMMAND ----------
 
--- DBTITLE 1,Exemplo IF/THEN/ELSE com Números
+-- DBTITLE 1,Criar Tabela de Produtos
+CREATE OR REPLACE TABLE produtos (
+  id INT,
+  nome STRING,
+  preco DECIMAL(10,2),
+  categoria STRING,
+  estoque INT
+);
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ### 2.1 Inserção de Dados com Loop
+-- MAGIC
+-- MAGIC Vamos inserir produtos usando um loop, com preços calculados dinamicamente.
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Inserir Produtos com Loop
 BEGIN
-  DECLARE choice DOUBLE DEFAULT 3.9;
-  DECLARE result STRING;
+  DECLARE contador INT DEFAULT 1;
+  DECLARE preco_base DECIMAL(10,2) DEFAULT 100.00;
   
-  IF choice < 2 THEN
-    VALUES ('Número menor que 2');
-  ELSEIF choice < 3 THEN
-    VALUES ('Número entre 2 e 3');
-  ELSEIF choice < 4 THEN
-    VALUES ('Número entre 3 e 4');
-  ELSE
-    VALUES ('Número maior ou igual a 4');
-  END IF;
+  -- Loop para inserir 10 produtos
+  WHILE contador <= 10 DO
+    -- Calcula preço com variação baseada no contador
+    INSERT INTO produtos VALUES (
+      contador,
+      CONCAT('Produto ', contador),
+      preco_base + (contador * 10.50),
+      CASE 
+        WHEN contador <= 3 THEN 'Eletrônicos'
+        WHEN contador <= 6 THEN 'Móveis'
+        ELSE 'Acessórios'
+      END,
+      50 + (contador * 5)
+    );
+    
+    SET contador = contador + 1;
+  END WHILE;
+  
+  -- Mostrar quantidade de produtos inseridos
+  SELECT COUNT(*) as total_produtos FROM produtos;
 END;
 
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ## 3. Exemplo de LOOP
+-- MAGIC ### 2.2 Atualização Condicional de Preços
 -- MAGIC
--- MAGIC Demonstração de como usar loops em SQL Scripting.
+-- MAGIC Exemplo de como atualizar preços baseado em condições.
 
 -- COMMAND ----------
 
--- DBTITLE 1,Exemplo de Loop - Soma de Números Ímpares
+-- DBTITLE 1,Atualizar Preços com Condições
 BEGIN
-  DECLARE sum INT DEFAULT 0;
-  DECLARE num INT DEFAULT 0;
+  -- Declarar variáveis para ajuste de preços
+  DECLARE aumento_eletronicos DECIMAL(5,2) DEFAULT 1.15; -- 15% de aumento
+  DECLARE aumento_moveis DECIMAL(5,2) DEFAULT 1.10;      -- 10% de aumento
+  DECLARE aumento_acessorios DECIMAL(5,2) DEFAULT 1.05;  -- 5% de aumento
   
-  sumNumbers: LOOP
-    SET num = num + 1;
+  -- Atualizar preços por categoria
+  UPDATE produtos 
+  SET preco = 
+    CASE categoria
+      WHEN 'Eletrônicos' THEN preco * aumento_eletronicos
+      WHEN 'Móveis' THEN preco * aumento_moveis
+      WHEN 'Acessórios' THEN preco * aumento_acessorios
+    END;
     
-    -- Sair do loop se número maior que 10
-    IF num > 10 THEN
-      LEAVE sumNumbers;
-    END IF;
-    
-    -- Pular números pares
-    IF num % 2 = 0 THEN
-      ITERATE sumNumbers;
-    END IF;
-    
-    SET sum = sum + num;
-  END LOOP sumNumbers;
-  
-  -- Mostrar resultado
-  VALUES (CONCAT('Soma dos números ímpares de 1 a 10: ', sum));
+  -- Mostrar novos preços
+  SELECT categoria, 
+         COUNT(*) as quantidade, 
+         AVG(preco) as preco_medio 
+  FROM produtos 
+  GROUP BY categoria;
 END;
 
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ## 4. Exemplo de Tratamento de Erros
+-- MAGIC ### 2.3 Controle de Estoque com LOOP e IF
 -- MAGIC
--- MAGIC Demonstração de como implementar tratamento de erros básico.
+-- MAGIC Exemplo de como atualizar estoque usando estruturas de controle.
 
 -- COMMAND ----------
 
--- DBTITLE 1,Exemplo de Tratamento de Erros
+-- DBTITLE 1,Atualizar Estoque
 BEGIN
-  DECLARE divisor INT DEFAULT 0;
-  DECLARE resultado DOUBLE;
+  -- Criar tabela temporária para registrar movimentações
+  CREATE OR REPLACE TEMPORARY TABLE movimentacao_estoque (
+    produto_id INT,
+    quantidade_anterior INT,
+    quantidade_nova INT,
+    tipo_movimento STRING
+  );
   
-  -- Tratamento de erro para divisão por zero
-  BEGIN
-    IF divisor = 0 THEN
-      SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Erro: Divisão por zero não é permitida';
-    ELSE
-      SET resultado = 100 / divisor;
-      VALUES (resultado);
+  -- Declarar variáveis
+  DECLARE produto_atual INT DEFAULT 1;
+  DECLARE estoque_minimo INT DEFAULT 70;
+  DECLARE quantidade_repor INT DEFAULT 30;
+  
+  -- Loop pelos produtos
+  WHILE produto_atual <= 10 DO
+    DECLARE estoque_atual INT;
+    
+    -- Obter estoque atual
+    SELECT estoque INTO estoque_atual 
+    FROM produtos 
+    WHERE id = produto_atual;
+    
+    -- Verificar e atualizar estoque
+    IF estoque_atual < estoque_minimo THEN
+      -- Registrar movimentação
+      INSERT INTO movimentacao_estoque VALUES (
+        produto_atual,
+        estoque_atual,
+        estoque_atual + quantidade_repor,
+        'Reposição'
+      );
+      
+      -- Atualizar estoque
+      UPDATE produtos 
+      SET estoque = estoque + quantidade_repor 
+      WHERE id = produto_atual;
     END IF;
-  END;
+    
+    SET produto_atual = produto_atual + 1;
+  END WHILE;
+  
+  -- Mostrar movimentações realizadas
+  SELECT * FROM movimentacao_estoque;
 END;
 
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ## 5. Exemplo de Variáveis e Escopo
+-- MAGIC ### 2.4 Relatório de Produtos
 -- MAGIC
--- MAGIC Demonstração de como variáveis funcionam em diferentes escopos.
+-- MAGIC Exemplo de como gerar um relatório usando os dados manipulados.
 
 -- COMMAND ----------
 
--- DBTITLE 1,Exemplo de Escopo de Variáveis
+-- DBTITLE 1,Gerar Relatório
 BEGIN
-  DECLARE x INT DEFAULT 10;
+  -- Criar tabela de relatório
+  CREATE OR REPLACE TABLE relatorio_produtos AS
+  SELECT 
+    categoria,
+    COUNT(*) as total_produtos,
+    ROUND(AVG(preco), 2) as preco_medio,
+    SUM(estoque) as estoque_total,
+    MIN(preco) as menor_preco,
+    MAX(preco) as maior_preco
+  FROM produtos
+  GROUP BY categoria
+  ORDER BY categoria;
   
-  -- Escopo externo
-  VALUES (CONCAT('Valor de x no escopo externo: ', x));
-  
-  BEGIN
-    -- Escopo interno
-    DECLARE x INT DEFAULT 20;
-    VALUES (CONCAT('Valor de x no escopo interno: ', x));
-  END;
-  
-  -- Voltando ao escopo externo
-  VALUES (CONCAT('Valor de x de volta ao escopo externo: ', x));
+  -- Mostrar relatório
+  SELECT * FROM relatorio_produtos;
 END;
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ## 3. Limpeza
+-- MAGIC
+-- MAGIC Removendo todas as tabelas criadas durante a demonstração.
+
+-- COMMAND ----------
+
+-- DBTITLE 1,Remover Assets
+DROP TABLE IF EXISTS produtos;
+DROP TABLE IF EXISTS relatorio_produtos;
