@@ -139,15 +139,6 @@ END;
 
 -- DBTITLE 1,Atualizar Estoque
 BEGIN
-  -- Criar tabela temporária para registrar movimentações
-  CREATE OR REPLACE TEMPORARY TABLE movimentacao_estoque (
-    produto_id INT,
-    quantidade_anterior INT,
-    quantidade_nova INT,
-    tipo_movimento STRING
-  );
-  
-  -- Declarar variáveis
   DECLARE produto_atual INT DEFAULT 1;
   DECLARE estoque_minimo INT DEFAULT 70;
   DECLARE quantidade_repor INT DEFAULT 30;
@@ -161,16 +152,8 @@ BEGIN
     FROM produtos 
     WHERE id = produto_atual;
     
-    -- Verificar e atualizar estoque
+    -- Verificar e atualizar estoque se necessário
     IF estoque_atual < estoque_minimo THEN
-      -- Registrar movimentação
-      INSERT INTO movimentacao_estoque VALUES (
-        produto_atual,
-        estoque_atual,
-        estoque_atual + quantidade_repor,
-        'Reposição'
-      );
-      
       -- Atualizar estoque
       UPDATE produtos 
       SET estoque = estoque + quantidade_repor 
@@ -180,8 +163,21 @@ BEGIN
     SET produto_atual = produto_atual + 1;
   END WHILE;
   
-  -- Mostrar movimentações realizadas
-  SELECT * FROM movimentacao_estoque;
+  -- Mostrar produtos que foram atualizados
+  WITH movimentacao_estoque AS (
+    SELECT 
+      id as produto_id,
+      nome,
+      estoque as quantidade_atual,
+      CASE 
+        WHEN estoque >= estoque_minimo THEN 'OK'
+        ELSE 'Baixo'
+      END as status_estoque
+    FROM produtos
+  )
+  SELECT * FROM movimentacao_estoque
+  WHERE status_estoque = 'Baixo'
+  ORDER BY produto_id;
 END;
 
 -- COMMAND ----------
