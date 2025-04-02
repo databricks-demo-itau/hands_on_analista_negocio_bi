@@ -1,6 +1,6 @@
 -- Databricks notebook source
 -- MAGIC %md
--- MAGIC # Demonstração Básica de SQL Scripting
+-- MAGIC # Exemplos Básicos de SQL Scripting
 -- MAGIC
 -- MAGIC Este notebook demonstra os conceitos básicos de SQL Scripting no Databricks, incluindo estruturas de controle de fluxo e manipulação de variáveis.
 -- MAGIC
