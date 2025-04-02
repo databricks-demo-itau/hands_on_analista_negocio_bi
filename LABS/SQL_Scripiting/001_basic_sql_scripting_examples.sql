@@ -255,6 +255,10 @@ END;
 
 -- COMMAND ----------
 
+SET spark.sql.ansi.enabled = True; -- Setando esse parametro pois por padrão dividir por zero retorna null (hive) ao inves de 0
+
+-- COMMAND ----------
+
 -- DBTITLE 1,Criar Tabela de Log
 CREATE OR REPLACE TABLE log_erros (
   data_hora TIMESTAMP,
