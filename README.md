@@ -43,15 +43,6 @@ Pratique com exercícios hands-on:
 
 Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md">README dos Laboratórios</a>.
 
-## Boas Práticas
-
-- Mantenha o catálogo e schema organizados conforme as instruções
-- Documente suas queries e análises
-- Siga as convenções de nomenclatura estabelecidas
-- Utilize comentários explicativos em suas queries
-- Considere o custo computacional ao utilizar funções de IA
-- Valide os resultados gerados por modelos de IA
-
 ## Suporte
 
 Em caso de dúvidas durante os laboratórios:
