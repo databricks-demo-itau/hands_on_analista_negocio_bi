@@ -43,22 +43,6 @@ Pratique com exercícios hands-on:
 
 Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md">README dos Laboratórios</a>.
 
-## Estrutura do Repositório
-
-```
-.
-├── DBDEMOS/
-│   ├── sql-ai-functions/            # Notebooks de funções SQL AI
-│   ├── aibi-portfolio-assistant/    # Notebooks do assistente de portfólio
-│   ├── _resources/                  # Recursos compartilhados
-│   └── 001_instala_dbdemos_BI.py   # Script de instalação
-│
-└── LABS/
-    ├── SQL_Scripting/              # Labs de scripting SQL
-    ├── Row_level_security_Column_Masking/  # Labs de segurança e mascaramento
-    └── Glue_catalog_federation/    # Labs de federação de catálogo AWS Glue
-```
-
 ## Boas Práticas
 
 - Mantenha o catálogo e schema organizados conforme as instruções
