@@ -24,7 +24,8 @@ Para mais detalhes sobre as demos, consulte o <a href="$./DBDEMOS/README.md">REA
 
 ### 2. <a href="$./LABS/README.md">Laboratórios Práticos (LABS)</a>
 Pratique com exercícios hands-on:
-- <a href="$./LABS/README_SQL_Analytics.md">SQL Analytics</a>
+- <a href="$./LABS/README_SQL_Scripting.md">SQL Scripting</a>
+- <a href="$./LABS/README_RLS_CM.md">Row Level Security e Column Masking</a>
 
 Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md">README dos Laboratórios</a>.
 
@@ -43,12 +44,12 @@ Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md
 ├── DBDEMOS/
 │   ├── sql-ai-functions/            # Notebooks de funções SQL AI
 │   ├── aibi-portfolio-assistant/    # Notebooks do assistente de portfólio
-│   ├── AI_Forecast_MV.dbquery.ipynb # Notebook de previsão usando AI
 │   ├── _resources/                  # Recursos compartilhados
 │   └── Instala_dbdemos_BI.py       # Script de instalação
 │
 └── LABS/
-    └── SQL_Analytics/               # Labs de análise SQL
+    ├── SQL_Scripting/              # Labs de scripting SQL
+    └── Row_level_security_Column_Masking/  # Labs de segurança e mascaramento
 ```
 
 ## Boas Práticas
