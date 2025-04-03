@@ -1,50 +1,56 @@
-# Demonstrações Interativas (DBDEMOS)
+# Hands-on: Demonstrações Interativas (DBDEMOS)
 
-Esta seção contém demonstrações interativas que ilustram os principais conceitos e funcionalidades do Databricks SQL para análise de negócios e BI.
+Bem-vindo às demonstrações interativas do Databricks! Esta seção contém uma série de demos práticas usando a biblioteca dbdemos para aprender conceitos fundamentais da plataforma.
+
+## Demonstrações Disponíveis
+
+### 1. <a href="$./README_SQL_AI_Functions.md">SQL AI Functions</a>
+- Funções de IA integradas ao SQL
+- Processamento de linguagem natural
+- Análise de sentimentos
+- Classificação e extração de informações
+
+### 2. <a href="$./README_AIBI_Portfolio.md">AI BI Portfolio Assistant</a>
+- Assistente de portfólio com IA
+- Análise de dados inteligente
+- Recomendações personalizadas
+- Insights automatizados
+
+### 3. <a href="$./AI_Forecast_MV.dbquery">AI Forecast MV</a>
+- Previsões usando modelos de IA
+- Análise de séries temporais
+- Modelagem preditiva
+- Visualização de resultados
 
 ## Estrutura das Demos
 
-### 1. [Queries Avançadas](./README_Queries.md)
-- Exploração de dados usando SQL avançado
-- Funções analíticas e janelas
-- Subqueries e CTEs
-- Otimização de queries
+```
+DBDEMOS/
+├── sql-ai-functions/        # Notebooks de funções SQL AI
+├── aibi-portfolio-assistant/# Notebooks do assistente de portfólio
+├── AI_Forecast_MV.dbquery.ipynb  # Notebook de previsões
+└── _resources/             # Recursos compartilhados
+```
 
-## Notebooks Disponíveis
+## Observações Importantes
 
-1. `AI_Forecast_MV.dbquery.ipynb` - Previsão usando AI e SQL
-   - Análise de séries temporais
-   - Integração com modelos de ML
-   - Visualização de resultados
+- Todos os notebooks contêm instruções detalhadas em português
+- Siga a ordem recomendada dos exercícios
+- Leia atentamente os comentários e documentações
+- Limpe os recursos após concluir cada exercício
 
-## Como Usar as Demos
+## Pré-requisitos
 
-1. Comece instalando as demos necessárias através do notebook `Instala_dbdemos_BI.py`
-2. Siga a ordem recomendada das demos
-3. Execute cada célula sequencialmente
-4. Leia os comentários e documentação em cada notebook
-5. Experimente modificar os exemplos para melhor entendimento
+- Acesso a um workspace Databricks
+- Permissões necessárias para criar e executar notebooks
+- Conhecimento básico de SQL e Python
+- dbdemos instalado através do notebook de instalação
 
-## Recursos Disponíveis
+## Suporte
 
-Cada demo inclui:
-- Notebooks com exemplos práticos
-- Dados de exemplo
-- Documentação detalhada
-- Exercícios sugeridos
+Em caso de dúvidas ou problemas:
+- Consulte os comentários nos notebooks
+- Verifique a documentação oficial do Databricks
+- Entre em contato com o instrutor do hands-on
 
-## Boas Práticas
-
-- Execute as demos em seu próprio schema
-- Documente suas modificações
-- Limpe os recursos após o uso
-- Consulte a documentação oficial quando necessário
-
-## Próximos Passos
-
-Após completar as demos:
-1. Pratique os conceitos nos laboratórios
-2. Explore variações dos exemplos
-3. Aplique o conhecimento em casos reais
-
-Para mais detalhes sobre cada demo, consulte os READMEs específicos em cada subdiretório. 
+Para retornar ao índice principal, clique <a href="$../README.md">aqui</a>. 
