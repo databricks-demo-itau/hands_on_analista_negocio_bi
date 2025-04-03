@@ -13,12 +13,11 @@ Este repositório contém o material para o hands-on de Análise de Negócios e 
 
 ## Configuração Inicial
 
-1. Configure o Git Folder para clonar este repositório
-   - Siga o guia em <a href="$./Guias_UI/git_folder.md">Como Criar Git Folder no Databricks</a>
+### Eu estou acessando esse documento pelo GITHUB:
+1. [Passo a passo de como criar Git Folder no Databricks](./Guias_UI/git_folder.md).
 
-2. Crie um cluster para executar os notebooks
-   - Siga o guia em <a href="$./Guias_UI/cluster.md">Criação de Cluster no Databricks</a>
-
+### Após clonar, siga pelo DATABRICKS:
+2. <a href="$./Guias_UI/cluster.md">Criar um Cluster</a> para executar os notebooks
 3. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
 4. Execute as células em sequência para:
    - Configurar seu nome de usuário
