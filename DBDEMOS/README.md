@@ -16,11 +16,6 @@ Bem-vindo às demonstrações interativas do Databricks! Esta seção contém um
 - Recomendações personalizadas
 - Insights automatizados
 
-### 3. <a href="$./AI_Forecast_MV.dbquery">AI Forecast MV</a>
-- Previsões usando modelos de IA
-- Análise de séries temporais
-- Modelagem preditiva
-- Visualização de resultados
 
 ## Estrutura das Demos
 

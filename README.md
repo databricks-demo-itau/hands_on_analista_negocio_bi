@@ -19,7 +19,6 @@ O hands-on está dividido em duas partes principais:
 Explore os conceitos fundamentais através de demos interativas:
 - <a href="$./DBDEMOS/README_SQL_AI_Functions.md">SQL AI Functions</a>
 - <a href="$./DBDEMOS/README_AIBI_Portfolio.md">AI BI Portfolio Assistant</a>
-- <a href="$./DBDEMOS/AI_Forecast_MV.dbquery.ipynb">AI Forecast MV</a>
 
 Para mais detalhes sobre as demos, consulte o <a href="$./DBDEMOS/README.md">README das Demonstrações</a>.
 
