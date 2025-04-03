@@ -34,6 +34,7 @@ Para mais detalhes sobre as demos, consulte o <a href="$./DBDEMOS/README.md">REA
 Pratique com exercícios hands-on:
 - <a href="$./LABS/README_SQL_Scripting.md">SQL Scripting</a>
 - <a href="$./LABS/README_RLS_CM.md">Row Level Security e Column Masking</a>
+- <a href="$./LABS/README_Glue.md">Federação de Catálogo AWS Glue</a>
 
 Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md">README dos Laboratórios</a>.
 
@@ -49,7 +50,8 @@ Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md
 │
 └── LABS/
     ├── SQL_Scripting/              # Labs de scripting SQL
-    └── Row_level_security_Column_Masking/  # Labs de segurança e mascaramento
+    ├── Row_level_security_Column_Masking/  # Labs de segurança e mascaramento
+    └── Glue_catalog_federation/    # Labs de federação de catálogo AWS Glue
 ```
 
 ## Boas Práticas

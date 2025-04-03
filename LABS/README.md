@@ -25,6 +25,13 @@ Esta seção contém laboratórios práticos para aplicar os conceitos aprendido
 - Manipulação de dados
 - Automação de processos
 
+### 3. [Federação de Catálogo AWS Glue](./README_Glue.md)
+- Conexão com catálogo AWS Glue
+- Exploração de tabelas federadas
+- Clonagem de tabelas para o formato Delta
+- Uso de recursos do Databricks com tabelas federadas
+- Integração com recursos avançados
+
 ## Como Realizar os Laboratórios
 
 1. Comece pelo laboratório de Row Level Security e Column Masking
