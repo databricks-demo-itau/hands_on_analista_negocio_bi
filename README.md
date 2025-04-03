@@ -11,6 +11,14 @@ Este repositório contém o material para o hands-on de Análise de Negócios e 
   - Visualizar e executar notebooks
   - Utilizar funções de IA
 
+## Configuração Inicial
+
+1. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
+2. Execute as células em sequência para:
+   - Configurar seu nome de usuário
+   - Instalar a biblioteca dbdemos
+   - Instalar as demos necessárias
+
 ## Estrutura do Hands-on
 
 O hands-on está dividido em duas partes principais:
@@ -28,14 +36,6 @@ Pratique com exercícios hands-on:
 - <a href="$./LABS/README_RLS_CM.md">Row Level Security e Column Masking</a>
 
 Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md">README dos Laboratórios</a>.
-
-## Configuração Inicial
-
-1. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
-2. Execute as células em sequência para:
-   - Configurar seu nome de usuário
-   - Instalar a biblioteca dbdemos
-   - Instalar as demos necessárias
 
 ## Estrutura do Repositório
 

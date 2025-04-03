@@ -2,6 +2,13 @@
 
 Esta seção contém laboratórios práticos para aplicar os conceitos aprendidos nas demonstrações. Cada laboratório foi desenvolvido para proporcionar experiência hands-on em diferentes aspectos do Databricks SQL para análise de negócios.
 
+## Pré-requisitos
+
+- Conclusão das demos relacionadas
+- Acesso ao Databricks SQL
+- Permissões adequadas no Unity Catalog
+- Conhecimento básico de SQL
+
 ## Estrutura dos Laboratórios
 
 ### 1. [Row Level Security e Column Masking](./README_RLS_CM.md)
@@ -33,13 +40,6 @@ Cada laboratório inclui:
 - Exercícios práticos
 - Soluções de referência
 - Dicas e boas práticas
-
-## Requisitos
-
-- Conclusão das demos relacionadas
-- Acesso ao Databricks SQL
-- Permissões adequadas no Unity Catalog
-- Conhecimento básico de SQL
 
 ## Boas Práticas
 

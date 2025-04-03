@@ -2,6 +2,13 @@
 
 Bem-vindo às demonstrações interativas do Databricks! Esta seção contém uma série de demos práticas usando a biblioteca dbdemos para aprender conceitos fundamentais da plataforma.
 
+## Pré-requisitos
+
+- Acesso a um workspace Databricks
+- Permissões necessárias para criar e executar notebooks
+- Conhecimento básico de SQL e Python
+- dbdemos instalado através do notebook 001_instala_dbdemos_BI
+
 ## Demonstrações Disponíveis
 
 ### 1. <a href="$./README_SQL_AI_Functions.md">SQL AI Functions</a>
@@ -32,13 +39,6 @@ DBDEMOS/
 - Siga a ordem recomendada dos exercícios
 - Leia atentamente os comentários e documentações
 - Limpe os recursos após concluir cada exercício
-
-## Pré-requisitos
-
-- Acesso a um workspace Databricks
-- Permissões necessárias para criar e executar notebooks
-- Conhecimento básico de SQL e Python
-- dbdemos instalado através do notebook 001_instala_dbdemos_BI
 
 ## Suporte
 
