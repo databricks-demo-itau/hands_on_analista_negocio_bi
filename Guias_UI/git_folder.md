@@ -8,7 +8,7 @@ Este guia demonstra o passo a passo para criar um Git Folder no Databricks.
 2. Clique no botão "Create"
 3. Selecione "Git Folder"
 4. Cole o link do repositório que deseja clonar
-   - Exemplo: https://github.com/databricks-demo-itau/hands_on_engenharia_dados
+   - Exemplo: https://github.com/databricks-demo-itau/hands_on_analista_negocio_bi
 5. Clique em "Create Git Folder" para finalizar
 
 ## Demonstração Visual
