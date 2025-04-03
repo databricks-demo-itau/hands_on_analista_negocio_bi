@@ -31,7 +31,7 @@ Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md
 
 ## Configuração Inicial
 
-1. Abra o notebook <a href="$./DBDEMOS/Instala_dbdemos_BI.py">Instala_dbdemos_BI</a>
+1. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
 2. Execute as células em sequência para:
    - Configurar seu nome de usuário
    - Instalar a biblioteca dbdemos
@@ -45,7 +45,7 @@ Para mais detalhes sobre os laboratórios, consulte o <a href="$./LABS/README.md
 │   ├── sql-ai-functions/            # Notebooks de funções SQL AI
 │   ├── aibi-portfolio-assistant/    # Notebooks do assistente de portfólio
 │   ├── _resources/                  # Recursos compartilhados
-│   └── Instala_dbdemos_BI.py       # Script de instalação
+│   └── 001_instala_dbdemos_BI.py   # Script de instalação
 │
 └── LABS/
     ├── SQL_Scripting/              # Labs de scripting SQL

@@ -16,15 +16,14 @@ Bem-vindo às demonstrações interativas do Databricks! Esta seção contém um
 - Recomendações personalizadas
 - Insights automatizados
 
-
 ## Estrutura das Demos
 
 ```
 DBDEMOS/
-├── sql-ai-functions/        # Notebooks de funções SQL AI
-├── aibi-portfolio-assistant/# Notebooks do assistente de portfólio
-├── AI_Forecast_MV.dbquery.ipynb  # Notebook de previsões
-└── _resources/             # Recursos compartilhados
+├── sql-ai-functions/            # Notebooks de funções SQL AI
+├── aibi-portfolio-assistant/    # Notebooks do assistente de portfólio
+├── _resources/                  # Recursos compartilhados
+└── 001_instala_dbdemos_BI.py   # Script de instalação
 ```
 
 ## Observações Importantes
@@ -39,7 +38,7 @@ DBDEMOS/
 - Acesso a um workspace Databricks
 - Permissões necessárias para criar e executar notebooks
 - Conhecimento básico de SQL e Python
-- dbdemos instalado através do notebook de instalação
+- dbdemos instalado através do notebook 001_instala_dbdemos_BI
 
 ## Suporte
 
