@@ -28,7 +28,6 @@
 -- MAGIC ## Tabelas no Glue
 -- MAGIC As tabelas que vamos utilizar estão no catalogo do Glue na AWS.
 
--- MAGIC %md
 -- MAGIC ![Tabelas no AWS Glue](../../Guias_UI/images/Glue_catalog_aws.png)
 
 -- COMMAND ----------
