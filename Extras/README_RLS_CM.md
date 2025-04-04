@@ -42,4 +42,4 @@ Este guia apresenta técnicas avançadas de segurança no Databricks, focando em
 - Documente todas as políticas implementadas
 - Mantenha um registro de auditoria
 
-Para retornar ao índice dos laboratórios, clique <a href="$./README.md">aqui</a>. 
+Para retornar ao índice dos laboratórios, clique <a href="$../README.md">aqui</a>. 

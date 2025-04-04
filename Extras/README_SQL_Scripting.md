@@ -31,4 +31,4 @@
 - Instruções detalhadas em português
 - Limpe os recursos após concluir os exercícios
 
-Para retornar ao índice dos laboratórios, clique <a href="$./README.md">aqui</a>. 
+Para retornar ao índice dos laboratórios, clique <a href="$../README.md">aqui</a>. 

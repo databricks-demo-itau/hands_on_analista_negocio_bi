@@ -1,4 +1,4 @@
-# Laboratórios Práticos (LABS)
+# Laboratórios Práticos (Extras)
 
 Esta seção contém laboratórios práticos para aplicar os conceitos aprendidos nas demonstrações. Cada laboratório foi desenvolvido para proporcionar experiência hands-on em diferentes aspectos do Databricks SQL para análise de negócios.
 
