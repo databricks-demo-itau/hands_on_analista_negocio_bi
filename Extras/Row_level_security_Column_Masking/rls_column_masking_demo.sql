@@ -27,20 +27,18 @@
 
 -- COMMAND ----------
 
--- MAGIC %python
--- MAGIC # Obtém o nome do usuário e formata para o schema
--- MAGIC user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName()
--- MAGIC user_name = user_name.toString().split('@')[0].split('(')[1].replace('.', '_')
--- MAGIC
--- MAGIC # Define o schema no Unity Catalog
--- MAGIC schema_name = user_name
--- MAGIC
--- MAGIC # Cria o schema se não existir
--- MAGIC spark.sql(f"CREATE SCHEMA IF NOT EXISTS dev_hands_on.{schema_name}")
--- MAGIC
--- MAGIC # Define a variável para uso no SQL
--- MAGIC spark.sql("DECLARE VARIABLE schema_name STRING")
--- MAGIC spark.sql(f"SET VARIABLE schema_name = '{schema_name}'")
+DECLARE OR REPLACE VARIABLE user_name STRING;
+DECLARE OR REPLACE VARIABLE schema_name STRING;
+SET VARIABLE user_name = (select replace(replace(split(current_user(), '@')[0], '.', '_'), '+', '_') as user_name);
+SET VARIABLE schema_name = user_name;
+
+-- COMMAND ----------
+
+USE CATALOG dev_hands_on;
+
+-- COMMAND ----------
+
+CREATE SCHEMA IF NOT EXISTS identifier(schema_name)
 
 -- COMMAND ----------
 
