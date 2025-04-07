@@ -6,7 +6,7 @@
 -- MAGIC
 -- MAGIC ## Requisitos
 -- MAGIC - Databricks Runtime (DBR) 16.3 ou superior
--- MAGIC - Unity Catalog configurado
+-- MAGIC   * <a href="$../../Guias_UI/cluster.md">Criar um Cluster</a> para executar os notebooks <-- Obrigatorio para este Exemplo
 -- MAGIC
 -- MAGIC ## Documentação Oficial
 -- MAGIC - [SQL Scripting](https://docs.databricks.com/aws/en/sql/language-manual/sql-ref-scripting)

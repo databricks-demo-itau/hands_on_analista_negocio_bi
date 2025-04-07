@@ -17,9 +17,8 @@ Este repositório contém o material para o hands-on de Análise de Negócios e 
 1. [Passo a passo de como criar Git Folder no Databricks](./Guias_UI/git_folder.md).
 
 ### Após clonar, siga pelo DATABRICKS:
-2. <a href="$./Guias_UI/cluster.md">Criar um Cluster</a> para executar os notebooks
-3. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
-4. Execute as células em sequência para:
+1. Abra o notebook <a href="$./DBDEMOS/001_instala_dbdemos_BI.py">001_instala_dbdemos_BI</a>
+2. Execute as células em sequência para:
    - Configurar seu nome de usuário
    - Instalar a biblioteca dbdemos
    - Instalar as demos necessárias
