@@ -23,11 +23,11 @@
 -- MAGIC - Schema `product` com as tabelas:
 -- MAGIC   - `portfolio`
 -- MAGIC   - `prices`
--- MAGIC
--- MAGIC
+
+
 -- MAGIC ## Tabelas no Glue
 -- MAGIC As tabelas que vamos utilizar estão no catalogo do Glue na AWS.
--- MAGIC
+
 -- MAGIC ![Tabelas no AWS Glue](../../Guias_UI/images/Glue_catalog_aws.png)
 
 -- COMMAND ----------
@@ -45,7 +45,7 @@ SET VARIABLE user_name = (select replace(split(current_user(), '@')[0], '.', '_'
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC
+
 -- MAGIC ## Explorando as Tabelas Federadas
 -- MAGIC
 -- MAGIC Vamos explorar as tabelas disponíveis no catálogo federado:
