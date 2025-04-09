@@ -1,6 +1,6 @@
 # Databricks notebook source
 user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName()
-user_name = user_name.toString().split('@')[0].split('(')[1].replace('.', '_').replace("+","_")
+user_name = user_name.toString().split('@')[0].split('(')[1].replace('.', '_').replace("+","_").replace("-","_")
 
 
 # COMMAND ----------

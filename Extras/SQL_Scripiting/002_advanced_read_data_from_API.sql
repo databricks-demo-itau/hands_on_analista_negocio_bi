@@ -49,7 +49,7 @@
 
 -- DBTITLE 1,Configurar variável com nome do usuário
 DECLARE OR REPLACE VARIABLE user_name STRING;
-SET VARIABLE user_name = (select replace(replace(split(current_user, '@')[0], '.', '_'),'+','_') as user_name)
+SET VARIABLE user_name = (select replace(replace(replace(split(current_user(), '@')[0], '.', '_'), '+', '_'), '-', '_') as user_name);
 
 -- COMMAND ----------
 
